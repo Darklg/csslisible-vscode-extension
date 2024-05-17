@@ -3,7 +3,7 @@
     "displayName": "CSSLisible",
     "description": "Clean CSS with CSSLisible",
     "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "engines": {
         "vscode": "^1.89.0"
     },
@@ -27,6 +27,23 @@
                     "type": "string",
                     "default": "http://git.test/CSSlisible/",
                     "description": "The API endpoint to send the file content to."
+                },
+                "csslisible.distance_selecteurs": {
+                    "type": "string",
+                    "enum": ["0", "1", "2"],
+                    "default": "1",
+                    "description": "Lines between selectors.",
+                    "enumDescriptions": [
+                        "None",
+                        "One",
+                        "Two"
+                    ]
+                },
+                "csslisible.selecteurs_multiples_separes": {
+                    "type": "string",
+                    "enum": ["0", "1"],
+                    "default": "1",
+                    "description": "Separate multiple selectors."
                 }
             }
         },

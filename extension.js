@@ -8,20 +8,19 @@ function activate(context) {
             vscode.window.showErrorMessage('No active editor found');
             return;
         }
+        const document = editor.document;
 
         const config = vscode.workspace.getConfiguration('csslisible');
         const apiEndpoint = config.get('apiEndpoint');
-
-        const document = editor.document;
-        const content = document.getText();
         const url = apiEndpoint ? apiEndpoint : 'https://www.csslisible.com/';
 
         try {
             const response = await axios.post(url, {
-                clean_css: content,
-                api: 1
+                api: 1,
+                clean_css: document.getText(),
+                distance_selecteurs: config.get('distance_selecteurs'),
+                selecteurs_multiples_separes: config.get('selecteurs_multiples_separes')
             });
-            const newText = response.data;
 
             const fullRange = new vscode.Range(
                 document.positionAt(0),
@@ -29,7 +28,7 @@ function activate(context) {
             );
 
             editor.edit(editBuilder => {
-                editBuilder.replace(fullRange, newText);
+                editBuilder.replace(fullRange, response.data);
             });
             vscode.window.showInformationMessage('File content updated successfully');
         } catch (error) {
