@@ -1,3 +1,3 @@
-# csslisible README
+# CSS Lisible VSCode Extension
 
-Send content to CSSLisible
+Clean CSS with CSSLisible

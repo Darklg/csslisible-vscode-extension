@@ -1,9 +1,9 @@
 {
     "name": "csslisible",
     "displayName": "CSSLisible",
-    "description": "Send content to CSSLisible",
+    "description": "Clean CSS with CSSLisible",
     "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "engines": {
         "vscode": "^1.89.0"
     },
@@ -16,12 +16,12 @@
         "commands": [
             {
                 "command": "csslisible.sendFileContent",
-                "title": "Send file to CSSLisible"
+                "title": "Clean with CSSLisible"
             }
         ],
         "configuration": {
             "type": "object",
-            "title": "Send File Content Extension Configuration",
+            "title": "CSSLisible",
             "properties": {
                 "csslisible.apiEndpoint": {
                     "type": "string",
@@ -29,7 +29,14 @@
                     "description": "The API endpoint to send the file content to."
                 }
             }
-        }
+        },
+        "keybindings": [
+            {
+                "command": "csslisible.sendFileContent",
+                "key": "ctrl+alt+l",
+                "when": "editorTextFocus"
+            }
+        ]
     },
     "scripts": {
         "lint": "eslint .",
