@@ -9,9 +9,12 @@ function activate(context) {
             return;
         }
 
+        const config = vscode.workspace.getConfiguration('csslisible');
+        const apiEndpoint = config.get('apiEndpoint');
+
         const document = editor.document;
         const content = document.getText();
-        const url = 'http://git.test/CSSlisible/'; // Replace with your API endpoint
+        const url = apiEndpoint ? apiEndpoint : 'https://www.csslisible.com/';
 
         try {
             const response = await axios.post(url, {

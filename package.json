@@ -1,39 +1,51 @@
 {
-  "name": "csslisible",
-  "displayName": "CSSLisible",
-  "description": "Send content to CSSLisible",
-  "version": "0.0.1",
-  "engines": {
-    "vscode": "^1.89.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "activationEvents": [],
-  "main": "./extension.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "csslisible.sendFileContent",
-        "title": "Send file to CSSLisible"
-      }
-    ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "vscode-test"
-  },
-  "devDependencies": {
-    "@types/mocha": "^10.0.6",
-    "@types/node": "18.x",
-    "@types/vscode": "^1.89.0",
-    "@vscode/test-cli": "^0.0.8",
-    "@vscode/test-electron": "^2.3.9",
-    "eslint": "^8.57.0",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
-    "axios": "^1.6.8"
-  }
+    "name": "csslisible",
+    "displayName": "CSSLisible",
+    "description": "Send content to CSSLisible",
+    "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
+    "version": "0.0.2",
+    "engines": {
+        "vscode": "^1.89.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "csslisible.sendFileContent",
+                "title": "Send file to CSSLisible"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Send File Content Extension Configuration",
+            "properties": {
+                "csslisible.apiEndpoint": {
+                    "type": "string",
+                    "default": "http://git.test/CSSlisible/",
+                    "description": "The API endpoint to send the file content to."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "npm run lint",
+        "test": "vscode-test"
+    },
+    "devDependencies": {
+        "@types/mocha": "^10.0.6",
+        "@types/node": "18.x",
+        "@types/vscode": "^1.89.0",
+        "@vscode/test-cli": "^0.0.8",
+        "@vscode/test-electron": "^2.3.9",
+        "eslint": "^8.57.0",
+        "typescript": "^5.3.3"
+    },
+    "dependencies": {
+        "axios": "^1.6.8"
+    }
 }
