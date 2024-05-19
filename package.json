@@ -3,7 +3,7 @@
     "displayName": "CSSLisible",
     "description": "Clean CSS with CSSLisible",
     "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "engines": {
         "vscode": "^1.89.0"
     },
@@ -44,6 +44,12 @@
                     "enum": ["0", "1"],
                     "default": "1",
                     "description": "Separate multiple selectors."
+                },
+                "csslisible.keep_empty_mediaqueries": {
+                    "type": "string",
+                    "enum": ["0", "1"],
+                    "default": "0",
+                    "description": "Keep empty mediaqueries."
                 }
             }
         },
