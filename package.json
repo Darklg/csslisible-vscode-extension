@@ -4,6 +4,7 @@
     "description": "%csslisible.description%",
     "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
     "version": "0.0.6",
+    "publisher": "KevinRocher",
     "l10n": "./l10n",
     "engines": {
         "vscode": "^1.89.0"
@@ -31,19 +32,29 @@
                 },
                 "csslisible.distance_selecteurs": {
                     "type": "string",
-                    "enum": ["0", "1", "2"],
+                    "enum": [
+                        "0",
+                        "1",
+                        "2"
+                    ],
                     "default": "1",
                     "description": "%csslisible.distance_selecteurs.description%"
                 },
                 "csslisible.selecteurs_multiples_separes": {
                     "type": "string",
-                    "enum": ["0", "1"],
+                    "enum": [
+                        "0",
+                        "1"
+                    ],
                     "default": "1",
                     "description": "%csslisible.selecteurs_multiples_separes.description%"
                 },
                 "csslisible.keep_empty_mediaqueries": {
                     "type": "string",
-                    "enum": ["0", "1"],
+                    "enum": [
+                        "0",
+                        "1"
+                    ],
                     "default": "0",
                     "description": "%csslisible.keep_empty_mediaqueries.description%"
                 }
