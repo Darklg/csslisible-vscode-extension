@@ -1,0 +1,8 @@
+{
+    "Failed to send file content:": "Echec de l'envoi du contenu du fichier",
+    "No active editor found": "Aucun éditeur actif trouvé",
+    "Only CSS, SCSS and SASS files are supported": "Seuls les fichiers CSS, SCSS et SASS sont supportés",
+    "CSS was already clean and formatted": "Le CSS était déjà nettoyé et formaté",
+    "CSS has been cleaned and formatted": "Le CSS a été nettoyé et formaté",
+    "The file is empty": "Le fichier est vide"
+}

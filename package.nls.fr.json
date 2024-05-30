@@ -1,0 +1,8 @@
+{
+    "csslisible.sendFileContent.title": "CSSLisible: Nettoyer le CSS",
+    "csslisible.description": "Nettoyer le CSS avec CSSLisible",
+    "csslisible.apiEndpoint.description": "L'endpoint API vers lequel envoyer le contenu du fichier.",
+    "csslisible.distance_selecteurs.description": "Lignes vides entre les sélecteurs.",
+    "csslisible.selecteurs_multiples_separes.description": "Séparer les sélecteurs multiples.",
+    "csslisible.keep_empty_mediaqueries.description": "Garder les mediaqueries vides."
+}

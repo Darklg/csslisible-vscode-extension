@@ -1,9 +1,10 @@
 {
     "name": "csslisible",
     "displayName": "CSSLisible",
-    "description": "Clean CSS with CSSLisible",
+    "description": "%csslisible.description%",
     "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
-    "version": "0.0.5",
+    "version": "0.0.6",
+    "l10n": "./l10n",
     "engines": {
         "vscode": "^1.89.0"
     },
@@ -16,7 +17,7 @@
         "commands": [
             {
                 "command": "csslisible.sendFileContent",
-                "title": "Clean with CSSLisible"
+                "title": "%csslisible.sendFileContent.title%"
             }
         ],
         "configuration": {
@@ -26,30 +27,25 @@
                 "csslisible.apiEndpoint": {
                     "type": "string",
                     "default": "http://git.test/CSSlisible/",
-                    "description": "The API endpoint to send the file content to."
+                    "description": "%csslisible.apiEndpoint.description%"
                 },
                 "csslisible.distance_selecteurs": {
                     "type": "string",
                     "enum": ["0", "1", "2"],
                     "default": "1",
-                    "description": "Lines between selectors.",
-                    "enumDescriptions": [
-                        "None",
-                        "One",
-                        "Two"
-                    ]
+                    "description": "%csslisible.distance_selecteurs.description%"
                 },
                 "csslisible.selecteurs_multiples_separes": {
                     "type": "string",
                     "enum": ["0", "1"],
                     "default": "1",
-                    "description": "Separate multiple selectors."
+                    "description": "%csslisible.selecteurs_multiples_separes.description%"
                 },
                 "csslisible.keep_empty_mediaqueries": {
                     "type": "string",
                     "enum": ["0", "1"],
                     "default": "0",
-                    "description": "Keep empty mediaqueries."
+                    "description": "%csslisible.keep_empty_mediaqueries.description%"
                 }
             }
         },

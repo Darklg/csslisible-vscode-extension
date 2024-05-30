@@ -5,40 +5,52 @@ function activate(context) {
     let disposable = vscode.commands.registerCommand('csslisible.sendFileContent', async function() {
         const editor = vscode.window.activeTextEditor;
         if (!editor) {
-            vscode.window.showErrorMessage('No active editor found');
+            vscode.window.showErrorMessage(vscode.l10n.t('No active editor found'));
             return;
         }
-        const document = editor.document;
 
+        const document = editor.document;
         const config = vscode.workspace.getConfiguration('csslisible');
         const apiEndpoint = config.get('apiEndpoint');
         const url = apiEndpoint ? apiEndpoint : 'https://www.csslisible.com/';
 
+        const textToClean = document.getText();
+
         try {
+            if (!['css', 'scss', 'sass'].includes(document.languageId)) {
+                vscode.window.showErrorMessage(vscode.l10n.t('Only CSS, SCSS and SASS files are supported'));
+                return;
+            }
+
+            if(!textToClean.trim()) {
+                vscode.window.showErrorMessage(vscode.l10n.t('The file is empty'));
+                return;
+            }
+
             const response = await axios.post(url, {
                 api: 1,
-                clean_css: document.getText(),
+                clean_css: textToClean,
                 distance_selecteurs: config.get('distance_selecteurs'),
                 selecteurs_multiples_separes: config.get('selecteurs_multiples_separes'),
                 keep_empty_mediaqueries: config.get('keep_empty_mediaqueries')
             });
 
-            if (response.data == document.getText()) {
-                vscode.window.showInformationMessage('CSS was already clean and formatted!');
+            if (response.data == textToClean) {
+                vscode.window.showInformationMessage(vscode.l10n.t('CSS was already clean and formatted'));
                 return;
             }
 
             const fullRange = new vscode.Range(
                 document.positionAt(0),
-                document.positionAt(document.getText().length)
+                document.positionAt(textToClean.length)
             );
 
             editor.edit(editBuilder => {
                 editBuilder.replace(fullRange, response.data);
             });
-            vscode.window.showInformationMessage('CSS has been cleaned and formatted!');
+            vscode.window.showInformationMessage(vscode.l10n.t('CSS has been cleaned and formatted'));
         } catch (error) {
-            vscode.window.showErrorMessage('Failed to send file content: ' + error.message);
+            vscode.window.showErrorMessage(vscode.l10n.t('Failed to send file content:') + ' ' + error.message);
         }
     });
 

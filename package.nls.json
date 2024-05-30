@@ -1,0 +1,8 @@
+{
+    "csslisible.sendFileContent.title": "CSSLisible: Clean CSS",
+    "csslisible.description": "Clean CSS with CSSLisible",
+    "csslisible.apiEndpoint.description": "The API endpoint to send the file content to.",
+    "csslisible.distance_selecteurs.description": "Empty lines between selectors.",
+    "csslisible.selecteurs_multiples_separes.description": "Separate multiple selectors.",
+    "csslisible.keep_empty_mediaqueries.description": "Keep empty mediaqueries."
+}
