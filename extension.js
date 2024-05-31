@@ -14,7 +14,9 @@ function activate(context) {
         const apiEndpoint = config.get('apiEndpoint');
         const url = apiEndpoint ? apiEndpoint : 'https://www.csslisible.com/';
 
-        const textToClean = document.getText();
+        const highlightedText = editor.document.getText(editor.selection);
+        const hasHighlightedText = highlightedText.length > 0;
+        const textToClean = hasHighlightedText ? highlightedText : document.getText();
 
         try {
             if (!['css', 'scss', 'sass'].includes(document.languageId)) {
@@ -40,9 +42,12 @@ function activate(context) {
                 return;
             }
 
+            const selectionStart = hasHighlightedText ? editor.selection.start : document.positionAt(0);
+            const selectionEnd = hasHighlightedText ? editor.selection.end : document.positionAt(textToClean.length);
+
             const fullRange = new vscode.Range(
-                document.positionAt(0),
-                document.positionAt(textToClean.length)
+                selectionStart,
+                selectionEnd
             );
 
             editor.edit(editBuilder => {

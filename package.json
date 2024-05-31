@@ -3,7 +3,7 @@
     "displayName": "CSSLisible",
     "description": "%csslisible.description%",
     "repository": "https://github.com/Darklg/csslisible-vscode-extension.git",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "publisher": "KevinRocher",
     "l10n": "./l10n",
     "engines": {
